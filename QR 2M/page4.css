@@ -1,0 +1,139 @@
+* {
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:tahoma;
+}
+
+body {
+min-height:100vh;
+background:linear-gradient(180deg, #2b003a, #8e244d);
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+align-items:center;
+position:relative;
+padding:20px 0;
+}
+
+/* متن بالای صفحه */
+.top-text {
+color:white;
+font-size:clamp(20px, 6vw, 28px);
+margin-top:20px;
+text-shadow:0 0 15px rgba(255,255,255,0.5);
+font-weight:bold;
+letter-spacing:1px;
+z-index:10;
+animation:glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+0%,100%{text-shadow:0 0 15px rgba(255,255,255,0.5);}
+50%{text-shadow:0 0 25px rgba(255,255,255,0.9);}
+}
+
+/* کانتینر ویدیو */
+.video-container {
+position:relative;
+width:90%;
+max-width:400px;
+aspect-ratio:9/16;
+border-radius:30px;
+overflow:hidden;
+box-shadow:0 20px 40px rgba(0,0,0,0.5);
+border:3px solid rgba(255,255,255,0.3);
+margin:10px auto;
+}
+
+/* پخش‌کننده ویدیو */
+.video-player {
+width:100%;
+height:100%;
+object-fit:cover;
+background:#000;
+}
+
+/* دکمه پلی سفارشی */
+.custom-play-button {
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%, -50%);
+width:80px;
+height:80px;
+cursor:pointer;
+z-index:20;
+transition:all 0.3s ease;
+opacity:1;
+border-radius:50%;
+}
+
+.custom-play-button:hover {
+transform:translate(-50%, -50%) scale(1.1);
+}
+
+.custom-play-button.hidden {
+opacity:0;
+pointer-events:none;
+}
+
+/* دکمه بعدی */
+.next-btn {
+background:linear-gradient(135deg, #ff6b9d, #c13b6b);
+color:white;
+border:none;
+border-radius:50px;
+padding:15px 50px;
+font-size:clamp(16px, 5vw, 20px);
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+border:2px solid rgba(255,255,255,0.3);
+margin-bottom:20px;
+transition:all 0.3s ease;
+z-index:10;
+letter-spacing:2px;
+}
+
+.next-btn:hover {
+transform:scale(1.05);
+background:linear-gradient(135deg, #ff7fad, #d44575);
+box-shadow:0 15px 35px rgba(0,0,0,0.4);
+}
+
+.next-btn:active {
+transform:scale(0.95);
+}
+
+/* ریسپانسیو */
+@media(max-width:500px) {
+.video-container {
+width:95%;
+}
+
+.custom-play-button {
+width:70px;
+height:70px;
+}
+
+.top-text {
+margin-top:15px;
+}
+
+.next-btn {
+padding:12px 40px;
+margin-bottom:15px;
+}
+}
+
+@media(max-width:380px) {
+.video-container {
+width:98%;
+}
+
+.custom-play-button {
+width:60px;
+height:60px;
+}
+}

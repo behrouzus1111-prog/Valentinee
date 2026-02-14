@@ -1,0 +1,210 @@
+/* فونت بی نازنین */
+@font-face {
+    font-family: 'BNazannin';
+    src: url('https://cdn.jsdelivr.net/gh/rastikerdar/b-nazanin@v2.0.0/dist/fonts/BNazannin.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'BNazannin', Arial, sans-serif;
+    min-height: 100vh;
+    background-image: url('love-heart-pattern-pink-pastel-seamless-background-free-vector.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    direction: rtl;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+/* متن بالای صفحه - بدون کادر */
+.top-message {
+    position: absolute;
+    top: 15%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 10;
+}
+
+.glow-text {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+    color: rgb(245, 100, 156);
+    -webkit-text-stroke: 2.5px black;  /* بردر مشکی دور حروف */
+    text-stroke: 1.5px black;          /* بردر مشکی دور حروف */
+    paint-order: stroke fill;           /* ترتیب: اول بردر بعد رنگ */
+    text-shadow: 
+        0 0 10px rgba(245, 83, 172, 0.8),
+        0 0 20px rgba(20, 20, 20, 0.8),
+        0 0 30px rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    display: inline-block;
+    /* حذف background و backdrop-filter و border و box-shadow */
+}
+
+/* بخش مرکزی صفحه */
+.center-section {
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.password-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+    flex-direction: row-reverse; /* این باعث میشه دکمه سمت راست باشه */
+}
+
+.password-box {
+    background: white;
+    border: 3px solid black;
+    border-radius: 20px;
+    padding: 10px 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.8s ease-out;
+    flex: 1;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.password-input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+    letter-spacing: 8px;
+    text-align: center;
+    font-family: monospace;
+    direction: ltr;
+    background: transparent;
+}
+
+.password-input::placeholder {
+    letter-spacing: 2px;
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    color: #ccc;
+}
+
+/* دکمه بعدی - سمت راست */
+.next-button {
+    padding: 15px 25px;
+    font-size: clamp(1rem, 4vw, 1.3rem);
+    border: 2px solid #888;
+    border-radius: 15px;
+    background: #f0f0f0;
+    color: #666;
+    cursor: not-allowed;
+    transition: all 0.3s ease;
+    font-family: 'BNazannin', Arial, sans-serif;
+    min-width: 80px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: slideUp 0.8s ease-out 0.2s both;
+    order: 1; /* این باعث میشه دکمه سمت راست بمونه */
+}
+
+.next-button.active {
+    background: #4CAF50;
+    border-color: #45a049;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.5);
+    transform: scale(1.05);
+}
+
+.next-button.active:hover {
+    background: #45a049;
+    transform: scale(1.1);
+}
+
+/* پیغام خطا */
+.error-message {
+    color: #ff3333;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: clamp(1rem, 4vw, 1.2rem);
+    margin-top: 15px;
+    border: 2px solid #ff3333;
+    backdrop-filter: blur(5px);
+    display: none;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.error-message.show {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* تنظیمات ریسپانسیو برای آیفون */
+@media screen and (max-width: 390px) {
+    .password-container {
+        gap: 10px;
+    }
+    
+    .password-box {
+        padding: 12px 20px;
+    }
+    
+    .next-button {
+        padding: 12px 20px;
+        min-width: 70px;
+    }
+}
+
+/* برای آیفون‌های بزرگتر */
+@media screen and (min-width: 391px) and (max-width: 428px) {
+    .password-container {
+        gap: 12px;
+    }
+    
+    .password-box {
+        padding: 14px 22px;
+    }
+}

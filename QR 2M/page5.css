@@ -1,0 +1,63 @@
+* {
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:tahoma;
+}
+
+body {
+height:100vh;
+overflow:hidden;
+background:linear-gradient(to bottom, #ffe4ec, #fff0f5);
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+}
+
+/* متن وسط */
+.center {
+width:85%;
+max-width:700px;
+text-align:center;
+z-index:10;
+padding:30px;
+background:rgba(255,255,255,0.5);
+backdrop-filter:blur(5px);
+border-radius:40px;
+border:2px solid rgba(255,200,210,0.8);
+box-shadow:0 15px 35px rgba(255,150,170,0.3);
+}
+
+.type-text {
+font-size:clamp(18px, 5.5vw, 28px);
+line-height:2;
+color:#9f4d5f;
+text-shadow:0 2px 15px rgba(255,255,255,0.9);
+white-space:pre-wrap;
+direction:rtl;
+font-weight:bold;
+}
+
+/* ریسپانسیو */
+@media(max-width:500px) {
+.center {
+width:90%;
+padding:25px;
+}
+
+.type-text {
+font-size:clamp(16px, 5vw, 24px);
+}
+}
+
+@media(max-width:380px) {
+.center {
+width:92%;
+padding:20px;
+}
+
+.type-text {
+font-size:clamp(15px, 4.5vw, 20px);
+}
+}
